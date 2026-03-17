@@ -1,0 +1,29 @@
+{
+    "users": [
+        {
+            "username": "bob",
+            "password": "bob", 
+            "role": "member"
+        },
+        {
+            "username": "dave",
+            "password": "dave",
+            "role": "member"
+        },
+        {
+            "username": "kevin",
+            "password": "kevin",
+            "role": "member"
+        },
+        {
+            "username": "gru",
+            "password": "gru",
+            "role": "librarian"
+        },
+        {
+            "username": "lucy",
+            "password": "lucy",
+            "role": "librarian"
+        }
+    ]
+}

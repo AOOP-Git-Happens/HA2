@@ -52,6 +52,8 @@
             </Ellipse.RenderTransform>
         </Ellipse>
 
+        
+
         <Border Classes="spin"
                 CornerRadius="8"
                 Background="White"
@@ -66,10 +68,10 @@
                         VerticalAlignment="Center"  
                         Spacing="20">
 
-                <TextBox BorderBrush="#E0E0E0" CornerRadius="8" Foreground="#333333" Watermark="Username"/>
-                <TextBox BorderBrush="#E0E0E0" CornerRadius="8" Foreground="#333333" PasswordChar="*" Watermark="Password"/>
-                <Button CornerRadius="8" Background="#F97068" Foreground="White" MinWidth="200" >Login</Button>
-                
+                <TextBox Text="{Binding Username}" Watermark="Username" BorderBrush="#E0E0E0" CornerRadius="8" Foreground="#333333"/>
+                <TextBox Text="{Binding Password}" Watermark="Password" BorderBrush="#E0E0E0" CornerRadius="8" Foreground="#333333" PasswordChar="*"/>
+                <Button Command="{Binding LoginCommand}" CornerRadius="8" Background="#F97068" Foreground="White" MinWidth="200">Login</Button>
+                            
             </StackPanel>
         </Border>
     </Grid>
