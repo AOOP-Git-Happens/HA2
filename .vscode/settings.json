@@ -1,3 +1,4 @@
 {
     "axaml.selectedSolution": "c:\\Users\\jonas\\Documents\\GitHub\\HA2\\HA2.sln"
+    "terminal.integrated.cwd": "${workspaceFolder}/LibraryApp" // I was feed up pressing cd ... in the console
 }
