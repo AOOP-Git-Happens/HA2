@@ -1,0 +1,25 @@
+<UserControl 
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:LibraryApp.ViewModels"
+    xmlns:models="using:LibraryApp.Models"
+    x:Class="LibraryApp.Views.LibraryCatalogView"
+    x:DataType="vm:LibraryCatalogViewModel">
+
+    <StackPanel>
+        
+        <TextBlock Text="Library Catalog" FontSize="16"/>
+        <TextBox Text="{Binding SearchText}" Width="200"/>
+
+        <ListBox ItemsSource="{Binding Books}"
+                 SelectedItem="{Binding SelectedBook}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="models:Book">
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </StackPanel>
+
+</UserControl>
