@@ -9,4 +9,6 @@ public class Book
     public string Isbn {get; set;} = "";
     public string Description {get; set;}= "";
     public bool IsAvailable {get; set;} = true; //useful for borrow/return or if member sees the book at all
+
+    public string AvailabilityText => IsAvailable ? "Available" : "Not available";
 }

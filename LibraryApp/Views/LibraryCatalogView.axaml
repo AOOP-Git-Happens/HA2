@@ -22,7 +22,7 @@ x:DataType="vm:LibraryCatalogViewModel">
                                        FontWeight= "Bold"/>
                             <TextBlock Text= "{Binding Author}"/>
                             <TextBlock Text= "{Binding Isbn}"/>
-                            <TextBlock Text= "Binding isAvailable"/>
+                            <TextBlock Text= "{Binding AvailabilityText}"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
