@@ -8,6 +8,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LibraryApp.Models;
 using LibraryApp.Repository;
@@ -18,9 +20,10 @@ public partial class LibraryCatalogViewModel : ViewModelBase
 {
     //receives data from 
     private readonly BookStore _bookStore;
+    private readonly CatalogMode _catalogMode;
 
     //1. list of MANY books
-    public List<Book> Books { get; set; } = new();
+    public ObservableCollection<Book> Books { get; } = new();
 
     //selected books
     [ObservableProperty]
@@ -30,10 +33,34 @@ public partial class LibraryCatalogViewModel : ViewModelBase
     [ObservableProperty]
     private string searchText = "";
 
-    public LibraryCatalogViewModel(BookStore bookStore)
+    public LibraryCatalogViewModel(BookStore bookStore, CatalogMode catalogMode)
     {
         _bookStore = bookStore;
 
-        Books = _bookStore.Books;
+        _catalogMode = catalogMode;
+
+        LoadBooks();
+    }
+
+    private void LoadBooks()
+    {
+        Books.Clear();
+
+        foreach (var book in _bookStore.Books)
+        {
+            if (_catalogMode == CatalogMode.Member)
+            {
+                // Member sees only available books
+                if (book.IsAvailable)
+                {
+                    Books.Add(book);
+                }
+            }
+            else
+            {
+                // Librarian sees all books
+                Books.Add(book);
+            }
+        }
     }
 }

@@ -8,5 +8,5 @@ public class Book
     public string Author {get;set;} = "";
     public string Isbn {get; set;} = "";
     public string Description {get; set;}= "";
-    public bool IsAvailable {get; set;} = true; //useful for borrow/return
+    public bool IsAvailable {get; set;} = true; //useful for borrow/return or if member sees the book at all
 }

@@ -5,6 +5,7 @@ commands LibraryCatalog or MyLoans pages (views)
 using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LibraryApp.Repository;
+using LibraryApp.Models;
 
 
 namespace LibraryApp.ViewModels;
@@ -19,15 +20,15 @@ public partial class MemberMainViewModel : ViewModelBase
     public MemberMainViewModel()
     {
         // default page
-        CurrentPage = new LibraryCatalogViewModel(_bookStore);
+        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Member);
     }
 
     public void ShowCatalog()
     {
-        CurrentPage = new LibraryCatalogViewModel(_bookStore);
+        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Member);
     }
 
-    public void ShowLoans()
+    public void ShowMyLoans()
     {
         CurrentPage = new MyLoansViewModel(_bookStore);
     }
