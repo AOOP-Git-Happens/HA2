@@ -1,0 +1,11 @@
+{
+    "members": [
+        { "username": "bob", "password": "bob" },
+        { "username": "dave", "password": "dave" },
+        { "username": "kevin", "password": "kevin" }
+    ],
+    "librarians": [
+        { "username": "gru", "password": "gru" },
+        { "username": "lucy", "password": "lucy" }
+    ]
+}
