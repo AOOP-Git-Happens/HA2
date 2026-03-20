@@ -1,7 +1,7 @@
 {
     "members": [
         { "username": "bob", "password": "bob" },
-        { "username": "dave", "password": "dave" }
+        { "username": "dave", "password": "dave" },
         { "username": "kevin", "password": "kevin" }
     ],
     "librarians": [

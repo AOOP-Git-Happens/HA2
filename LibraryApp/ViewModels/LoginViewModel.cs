@@ -22,15 +22,12 @@ public partial class LoginViewModel : ViewModelBase
         _navigateToMember = navigateToMember;
         _navigateToLibrarian = navigateToLibrarian;
         
-        // Create the store, which automatically loads the JSON file via its constructor
         _userStore = new UserStore(); 
     }
 
     [RelayCommand]
     private void Login()
     {
-        // Ask the UserStore if the credentials are valid
-        // Note: We use Username and Password here (the generated public properties)
         string role = _userStore.ValidateUser(Username, Password);
         
         if (role == "member")
@@ -43,7 +40,6 @@ public partial class LoginViewModel : ViewModelBase
         }
         else
         {
-            // Optional: Handle what happens if the login fails
             Console.WriteLine("Invalid username or password.");
         }
     }   

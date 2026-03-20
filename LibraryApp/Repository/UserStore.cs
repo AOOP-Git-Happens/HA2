@@ -31,7 +31,6 @@ public class UserStore
         string jsonString = File.ReadAllText(fileName);
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         
-        // 2. Deserialize into the safe UserData class instead of UserStore!
         UserData? loadedData = JsonSerializer.Deserialize<UserData>(jsonString, options);
 
         if (loadedData != null)
