@@ -1,29 +1,11 @@
 {
-    "users": [
-        {
-            "username": "bob",
-            "password": "bob", 
-            "role": "member"
-        },
-        {
-            "username": "dave",
-            "password": "dave",
-            "role": "member"
-        },
-        {
-            "username": "kevin",
-            "password": "kevin",
-            "role": "member"
-        },
-        {
-            "username": "gru",
-            "password": "gru",
-            "role": "librarian" 
-        },
-        {
-            "username": "lucy",
-            "password": "lucy",
-            "role": "librarian"
-        }
+    "members": [
+        { "username": "bob", "password": "bob" },
+        { "username": "dave", "password": "dave" }
+        { "username": "kevin", "password": "kevin" }
+    ],
+    "librarians": [
+        { "username": "gru", "password": "gru" },
+        { "username": "lucy", "password": "lucy" }
     ]
 }

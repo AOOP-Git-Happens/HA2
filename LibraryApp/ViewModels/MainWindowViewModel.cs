@@ -1,7 +1,7 @@
 ﻿//current root screen, app startup state
 //aka app coordinator
 using CommunityToolkit.Mvvm.ComponentModel;
-using System
+using System;
 
 namespace LibraryApp.ViewModels;
 

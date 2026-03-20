@@ -1,19 +1,15 @@
 ﻿using System;
-using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Text.Json;
-using System.IO;
+using LibraryApp.Repository;
 
 namespace LibraryApp.ViewModels;
 
-// what I am trying to do is that I activate this script if the login button is pressed, than it compares the model and sees if in the json file
-// there is a user with that name and password. After that it checks with member type is this. This will link it t MemberMainView or LibarianMainView
 public partial class LoginViewModel : ViewModelBase
 {
-
     private readonly Action _navigateToMember;
     private readonly Action _navigateToLibrarian;
+    private readonly UserStore _userStore;
     
     [ObservableProperty]
     private string _username = "";
@@ -25,35 +21,30 @@ public partial class LoginViewModel : ViewModelBase
     {
         _navigateToMember = navigateToMember;
         _navigateToLibrarian = navigateToLibrarian;
+        
+        // Create the store, which automatically loads the JSON file via its constructor
+        _userStore = new UserStore(); 
     }
 
     [RelayCommand]
     private void Login()
     {
-  
-        string fileName = "login.json";
-        string jsonString = File.ReadAllText(fileName);
-
-        UserContainer? container = JsonSerializer.Deserialize<UserContainer>(jsonString);
+        // Ask the UserStore if the credentials are valid
+        // Note: We use Username and Password here (the generated public properties)
+        string role = _userStore.ValidateUser(Username, Password);
         
-        if(container.username == _username && container.password == _password)
+        if (role == "member")
         {
-            //check if libarian or member
-            if(container.role == "member")
-            {
-                //point to member site
-                _navigateToMember();
-                
-            }
-            else
-            {
-                // point to lib site
-                _navigateToLibrarian();
-            }
-            
+            _navigateToMember();
         }
-        
+        else if (role == "librarian")
+        {
+            _navigateToLibrarian();
+        }
+        else
+        {
+            // Optional: Handle what happens if the login fails
+            Console.WriteLine("Invalid username or password.");
+        }
     }   
-    
-
 }
