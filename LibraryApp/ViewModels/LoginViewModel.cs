@@ -12,13 +12,20 @@ namespace LibraryApp.ViewModels;
 public partial class LoginViewModel : ViewModelBase
 {
 
+    private readonly Action _navigateToMember;
+    private readonly Action _navigateToLibrarian;
+    
     [ObservableProperty]
     private string _username = "";
 
     [ObservableProperty]
     private string _password = "";
     
-
+    public LoginViewModel(Action navigateToMember, Action navigateToLibrarian)
+    {
+        _navigateToMember = navigateToMember;
+        _navigateToLibrarian = navigateToLibrarian;
+    }
 
     [RelayCommand]
     private void Login()
@@ -35,11 +42,13 @@ public partial class LoginViewModel : ViewModelBase
             if(container.role == "member")
             {
                 //point to member site
+                _navigateToMember();
                 
             }
             else
             {
                 // point to lib site
+                _navigateToLibrarian();
             }
             
         }

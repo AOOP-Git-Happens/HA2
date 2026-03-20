@@ -1,6 +1,7 @@
 ﻿//current root screen, app startup state
 //aka app coordinator
 using CommunityToolkit.Mvvm.ComponentModel;
+using System
 
 namespace LibraryApp.ViewModels;
 
@@ -12,7 +13,7 @@ public partial class MainWindowViewModel : ViewModelBase
     //firstly shows login page 
     public MainWindowViewModel()
     {
-        CurrentPage = new LoginViewModel();
+        CurrentPage = new LoginViewModel(NavigateToMemberDashboard, NavigateToLibrarianDashboard);
 
         //for checking purposes, to see if these pages behave as intended
         //just uncomment the one you need to check
