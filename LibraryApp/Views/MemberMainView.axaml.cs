@@ -21,6 +21,6 @@ public partial class MemberMainView : UserControl
     private void ShowLoans(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (DataContext is MemberMainViewModel vm)
-            vm.ShowLoans();
+            vm.ShowMyLoans();
     }
 }

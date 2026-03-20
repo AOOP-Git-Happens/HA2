@@ -9,6 +9,10 @@
 
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="Librarian View!" FontSize="24" FontWeight="Bold"/>
+        <Button Content= "Active Loans" Click= "ShowActiveLoans"/>
+        <Button Content= "Catalog" Click= "ShowCatalog"/>
+
+        <ContentControl Content= "{Binding CurrentPage}"/>
     </StackPanel>
 
 </UserControl>

@@ -12,6 +12,7 @@
         <Button Content= "Catalog" Click= "ShowCatalog"/>
         <Button Content= "My Loans" Click= "ShowLoans"/>
 
+        <ContentControl Content= "{Binding CurrentPage}"/>
     </StackPanel>
 
 </UserControl>
