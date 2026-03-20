@@ -9,7 +9,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
-        CurrentPage = new LoginViewModel();
+        CurrentPage = new LoginViewModel(); 
     }
 
     public void NavigateToMemberDashboard()
