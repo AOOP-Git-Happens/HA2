@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using LibraryApp.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LibraryApp.Repository;
 
@@ -42,19 +44,40 @@ public class UserStore
     }
 
     public string ValidateUser(string username, string password)
+{
+    // Hash the password the user just typed in
+    string hashedInputPassword = HashPassword(password);
+
+    foreach (var member in Members)
     {
-        foreach (var member in Members)
-        {
-            if (member.UserName == username && member.Password == password) 
-                return "member";
-        }
-        
-        foreach (var librarian in Librarians)
-        {
-            if (librarian.UserName == username && librarian.Password == password) 
-                return "librarian";
-        }
-        
-        return "invalid";
+        // Compare the hashed input against the stored hash
+        if (member.UserName == username && member.Password == hashedInputPassword) 
+            return "member";
     }
+    
+    foreach (var librarian in Librarians)
+    {
+        // Compare the hashed input against the stored hash
+        if (librarian.UserName == username && librarian.Password == hashedInputPassword) 
+            return "librarian";
+    }
+    
+    return "invalid";
+}
+    private string HashPassword(string password)
+{
+    using (SHA256 sha256Hash = SHA256.Create())
+    {
+        // Convert the string to a byte array and compute the hash
+        byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+        
+        // Convert the byte array back to a hexadecimal string
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < bytes.Length; i++)
+        {
+            builder.Append(bytes[i].ToString("x2"));
+        }
+        return builder.ToString();
+    }
+}
 }

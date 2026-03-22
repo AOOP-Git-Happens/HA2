@@ -1,11 +1,11 @@
 {
     "members": [
-        { "username": "bob", "password": "bob" },
-        { "username": "dave", "password": "dave" },
-        { "username": "kevin", "password": "kevin" }
+        { "username": "bob", "password": "81b637d8fcd2c6da6359e6963113a1170de795e4b725b84d1e0b4cfd9ec58ce9" },
+        { "username": "dave", "password": "61ea0803f8853523b777d414ace3130cd4d3f92de2cd7ff8695c337d79c2eeee" },
+        { "username": "kevin", "password": "85f5e10431f69bc2a14046a13aabaefc660103b6de7a84f75c4b96181d03f0b5" }
     ],
     "librarians": [
-        { "username": "gru", "password": "gru" },
-        { "username": "lucy", "password": "lucy" }
+        { "username": "gru", "password": "004bd70f77fd37cc16fe18df5b8a67ab33b7b42f27d90537b2848b32e4d32b6a" },
+        { "username": "lucy", "password": "dc99e9aa86fab83a062cff5e0808391757071a3d5dbb942802d5f923aaead3b4" }
     ]
 }
