@@ -16,7 +16,6 @@
                     <StackPanel Orientation="Horizontal" Spacing="15" Margin="0,5">
                         
                         <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Width="200" />
-                        
                         <Button 
                             Command="{Binding $parent[UserControl].((vm:MyLoansViewModel)DataContext).ReturnCommand}" 
                             CommandParameter="{Binding}"

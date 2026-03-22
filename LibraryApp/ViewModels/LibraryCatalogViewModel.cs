@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LibraryApp.Models;
 using LibraryApp.Repository;
 
@@ -41,6 +42,13 @@ public partial class LibraryCatalogViewModel : ViewModelBase
 
         LoadBooks();
     }
+
+    [RelayCommand]
+    private void Borrow(Book bookToBorrow)
+    {
+        
+    }
+    
 
     private void LoadBooks()
     {
