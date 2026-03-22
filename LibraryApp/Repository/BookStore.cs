@@ -29,7 +29,6 @@ public class BookStore
 
     public void SaveBooks()
     {
-        // WriteIndented makes sure the JSON file is readable with line breaks
         var options = new JsonSerializerOptions { WriteIndented = true };
         var json = JsonSerializer.Serialize(Books, options);
         File.WriteAllText("Assets/books.json", json);

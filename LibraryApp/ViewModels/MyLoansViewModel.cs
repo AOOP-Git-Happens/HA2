@@ -1,7 +1,3 @@
-/*
-responsible for 1. current (member's) borrowed books
-return command
-*/
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,7 +34,7 @@ public partial class MyLoansViewModel : ViewModelBase
             bookToReturn.LoanedBy = ""; 
             MyBorrowedBooks.Remove(bookToReturn);
             
-            _bookStore.SaveBooks(); 
+            _bookStore.SaveBooks();
         }
     }
 }

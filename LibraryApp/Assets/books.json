@@ -6,7 +6,6 @@
     "Isbn": "1111111111",
     "Description": "Dystopian novel",
     "IsAvailable": false,
-    "AvailabilityText": "Not available",
     "LoanedBy": "dave"
   },
   {
@@ -16,7 +15,6 @@
     "Isbn": "2222222222",
     "Description": null,
     "IsAvailable": false,
-    "AvailabilityText": "Not available",
     "LoanedBy": "bob"
   },
   {
@@ -26,7 +24,6 @@
     "Isbn": "3333333333",
     "Description": "Programming book",
     "IsAvailable": false,
-    "AvailabilityText": "Not available",
     "LoanedBy": "dave"
   }
 ]

@@ -42,7 +42,6 @@ public partial class LibraryCatalogViewModel : ViewModelBase
                 Books.Remove(bookToBorrow);
             }
             
-            // Save the changes to the JSON file
             _bookStore.SaveBooks();
         }
     }
