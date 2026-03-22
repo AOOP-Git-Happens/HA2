@@ -32,6 +32,7 @@ public partial class LoginViewModel : ViewModelBase
         
         if (role == "member")
         {
+            UserStore.LoggedInUsername = Username;
             _navigateToMember();
         }
         else if (role == "librarian")
