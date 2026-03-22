@@ -8,16 +8,25 @@
 
     <StackPanel Margin="10">
 
-        <TextBlock Text="My Loans" FontSize="16"/>
+        <TextBlock Text="My Loans" FontSize="16" Margin="0,0,0,10"/>
 
         <ListBox ItemsSource="{Binding MyBorrowedBooks}">
-
             <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="models:Book">
-                  <TextBlock Text="{Binding Title}" />
+                    <StackPanel Orientation="Horizontal" Spacing="15" Margin="0,5">
+                        
+                        <TextBlock Text="{Binding Title}" VerticalAlignment="Center" Width="200" />
+                        
+                        <Button 
+                            Command="{Binding $parent[UserControl].((vm:MyLoansViewModel)DataContext).ReturnCommand}" 
+                            CommandParameter="{Binding}"
+                            CornerRadius="8" Background="#F97068" Foreground="White" MinWidth="100">
+                            Return
+                        </Button>
+                        
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-
         </ListBox>
 
     </StackPanel>

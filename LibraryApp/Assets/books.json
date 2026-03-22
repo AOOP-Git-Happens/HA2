@@ -6,7 +6,7 @@
     "Isbn": "1111111111",
     "Description": "Dystopian novel",
     "IsAvailable": true,
-    "LoanedBy": "kevin"
+    "LoanedBy": ""
   },
   {
     "Id": 2,
@@ -14,8 +14,8 @@
     "Author": "George Orwell",
     "Isbn": "2222222222",
     "Description": null,
-    "IsAvailable": false,
-    "LoanedBy" : "bob"
+    "IsAvailable": true,
+    "LoanedBy" : ""
   },
   {
     "Id": 3,
@@ -24,6 +24,6 @@
     "Isbn": "3333333333", 
     "Description": "Programming book", 
     "IsAvailable": true,
-    "LoanedBy" : "dave"
+    "LoanedBy" : "bob"
   }
 ]

@@ -50,8 +50,8 @@ public partial class LibraryCatalogViewModel : ViewModelBase
         {
             if (_catalogMode == CatalogMode.Member)
             {
-                // Member sees only available books
-                if (book.IsAvailable)
+                // member is able to see all the boks that arent rented by a member
+                if (book.LoanedBy == "")
                 {
                     Books.Add(book);
                 }

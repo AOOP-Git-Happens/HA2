@@ -2,13 +2,16 @@
 responsible for 1. current (member's) borrowed books
 return command
 */
-
 using System;
 using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LibraryApp.Models;
 using LibraryApp.Repository;
 using System.Linq;
+
+
+using CommunityToolkit.Mvvm.Input;
+
 
 namespace LibraryApp.ViewModels;
 
@@ -26,4 +29,10 @@ public partial class MyLoansViewModel : ViewModelBase
             .Where(book => book.LoanedBy == UserStore.LoggedInUsername)
             .ToList();
     }
+    [RelayCommand]
+    private void Return()
+    {
+        
+    }
+        
 }
