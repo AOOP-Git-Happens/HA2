@@ -10,12 +10,11 @@
 
         <TextBlock Text="My Loans" FontSize="16"/>
 
-        <ListBox ItemsSource="{Binding Loans}"
-                 SelectedItem="{Binding SelectedLoan}">
+        <ListBox ItemsSource="{Binding MyBorrowedBooks}">
 
             <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="models:Loan">
-                    <TextBlock Text="{Binding BookId}" />
+                <DataTemplate x:DataType="models:Book">
+                  <TextBlock Text="{Binding Title}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
 

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LibraryApp.Models;
 using LibraryApp.Repository;
+using System.Linq;
 
 namespace LibraryApp.ViewModels;
 
