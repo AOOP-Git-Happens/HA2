@@ -1,12 +1,9 @@
-//works with BOOK DATA, load/save them, help with borrow/return?
-//maybe later helper methods like add/remove and update? :)
-
 using System.Collections.Generic;
 using LibraryApp.Models;
-namespace LibraryApp.Repository;
-
 using System.IO;
 using System.Text.Json;
+
+namespace LibraryApp.Repository;
 
 public class BookStore
 {
@@ -17,6 +14,7 @@ public class BookStore
     {
         LoadBooks();
     }
+
     public void LoadBooks()
     {
         if (!File.Exists("Assets/books.json"))
@@ -27,6 +25,14 @@ public class BookStore
 
         var json = File.ReadAllText("Assets/books.json");
         Books = JsonSerializer.Deserialize<List<Book>>(json) ?? new List<Book>();
+    }
+
+    public void SaveBooks()
+    {
+        // WriteIndented makes sure the JSON file is readable with line breaks
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        var json = JsonSerializer.Serialize(Books, options);
+        File.WriteAllText("Assets/books.json", json);
     }
 
     public void LoadLoans()
