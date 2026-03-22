@@ -14,6 +14,7 @@ public class UserData
 
 public class UserStore
 {
+    public static string LoggedInUsername { get; set; } = "";
     public List<Member> Members { get; set; } = new List<Member>();
     public List<Librarian> Librarians { get; set; } = new List<Librarian>();
 

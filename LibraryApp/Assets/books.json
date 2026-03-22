@@ -5,7 +5,8 @@
     "Author": "J.R.R. Tolkien",
     "Isbn": "1111111111",
     "Description": "Dystopian novel",
-    "IsAvailable": true
+    "IsAvailable": true,
+    "LoanedBy": ""
   },
   {
     "Id": 2,
@@ -13,7 +14,8 @@
     "Author": "George Orwell",
     "Isbn": "2222222222",
     "Description": null,
-    "IsAvailable": false
+    "IsAvailable": false,
+    "LoanedBy" : "bob"
   },
   {
     "Id": 3,
@@ -21,6 +23,7 @@
     "Author": "Robert C. Martin", 
     "Isbn": "3333333333", 
     "Description": "Programming book", 
-    "IsAvailable": true
+    "IsAvailable": true,
+    "LoanedBy" : ""
   }
 ]

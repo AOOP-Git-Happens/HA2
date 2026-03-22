@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LibraryApp.Models;
 using LibraryApp.Repository;
+using System.Linq;
 
 namespace LibraryApp.ViewModels;
 
@@ -15,15 +16,14 @@ public partial class MyLoansViewModel : ViewModelBase
 {
     private readonly BookStore _bookStore;
 
-    //current borrowed books members aka LOAN
-    public List <Loan> Loans{ get; set; } = new();
+    public List<Book> MyBorrowedBooks { get; set; } = new();
 
-    [ObservableProperty]
-    private Loan? selectedLoan;
-
-    public MyLoansViewModel(BookStore bookStore)
+    public MyLoansViewModel(BookStore bookStore) 
     {
         _bookStore = bookStore;
-        Loans = _bookStore.Loans;
+        
+        MyBorrowedBooks = _bookStore.Books
+            .Where(book => book.LoanedBy == UserStore.LoggedInUsername)
+            .ToList();
     }
 }
