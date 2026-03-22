@@ -6,7 +6,7 @@
     "Isbn": "1111111111",
     "Description": "Dystopian novel",
     "IsAvailable": true,
-    "LoanedBy": ""
+    "LoanedBy": "kevin"
   },
   {
     "Id": 2,
@@ -24,6 +24,6 @@
     "Isbn": "3333333333", 
     "Description": "Programming book", 
     "IsAvailable": true,
-    "LoanedBy" : ""
+    "LoanedBy" : "dave"
   }
 ]

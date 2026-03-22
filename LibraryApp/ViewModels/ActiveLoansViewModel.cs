@@ -8,21 +8,22 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using LibraryApp.Models;
 using LibraryApp.Repository;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LibraryApp.ViewModels;
 
 public partial class ActiveLoansViewModel : ViewModelBase
-
 {
     private readonly BookStore _bookStore;
-    public List<Loan> Loans { get; set; } = new();
-
-    [ObservableProperty]
-    private Loan? selectedLoan;
+    
+    public List<Book> ActiveBorrowedBooks { get; set; } = new();
 
     public ActiveLoansViewModel(BookStore bookStore)
     {
         _bookStore = bookStore;
-        Loans = _bookStore.Loans;
+        
+        ActiveBorrowedBooks = _bookStore.Books
+            .Where(book => !string.IsNullOrEmpty(book.LoanedBy))
+            .ToList();
     }
 }
