@@ -15,7 +15,7 @@
     "Isbn": "2222222222",
     "Description": null,
     "IsAvailable": false,
-    "LoanedBy": "bob"
+    "LoanedBy": ""
   },
   {
     "Id": 3,
@@ -24,6 +24,6 @@
     "Isbn": "3333333333",
     "Description": "Programming book",
     "IsAvailable": false,
-    "LoanedBy": "dave"
+    "LoanedBy": ""
   }
 ]
