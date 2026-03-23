@@ -4,6 +4,7 @@ commands LibraryCatalog or MyLoans pages (views)
 */
 using System;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LibraryApp.Repository;
 using LibraryApp.Models;
 

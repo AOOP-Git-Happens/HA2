@@ -5,8 +5,8 @@
     "Author": "J.R.R. Tolkien",
     "Isbn": "1111111111",
     "Description": "Dystopian novel",
-    "IsAvailable": true,
-    "LoanedBy": "kevin"
+    "IsAvailable": false,
+    "LoanedBy": "dave"
   },
   {
     "Id": 2,
@@ -15,15 +15,15 @@
     "Isbn": "2222222222",
     "Description": null,
     "IsAvailable": false,
-    "LoanedBy" : "bob"
+    "LoanedBy": "bob"
   },
   {
     "Id": 3,
-    "Title": "Clean Code", 
-    "Author": "Robert C. Martin", 
-    "Isbn": "3333333333", 
-    "Description": "Programming book", 
-    "IsAvailable": true,
-    "LoanedBy" : "dave"
+    "Title": "Clean Code",
+    "Author": "Robert C. Martin",
+    "Isbn": "3333333333",
+    "Description": "Programming book",
+    "IsAvailable": false,
+    "LoanedBy": "dave"
   }
 ]
