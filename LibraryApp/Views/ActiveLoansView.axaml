@@ -8,14 +8,17 @@
 
     <StackPanel Margin="10">
 
-        <TextBlock Text="Active Loans" FontSize="16"/>
+        <TextBlock Text="Active Loans" FontSize="16" Margin="0,0,0,10"/>
 
-        <ListBox ItemsSource="{Binding Loans}"
-                 SelectedItem="{Binding SelectedLoan}">
+        <ListBox ItemsSource="{Binding ActiveBorrowedBooks}">
 
             <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="models:Loan">
-                    <TextBlock Text="{Binding BookId}" />
+                <DataTemplate x:DataType="models:Book">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <TextBlock Text="{Binding Title}"/>
+                        <TextBlock Text= " - "/>
+                        <TextBlock Text="{Binding LoanedBy}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
 
