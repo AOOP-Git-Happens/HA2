@@ -10,6 +10,10 @@
         <TextBlock Text="Library Catalog" FontSize="20"/>
         <TextBox Text="{Binding SearchText}" Width="200" Watermark="Search by title or author"/>
 
+        <TextBlock Text="{Binding StatusMessage}"
+               Foreground="Green"
+               FontWeight="Bold"/>
+
         <!-- Librarian action (add, delete, edit) -->
         <StackPanel Orientation="Horizontal" Spacing="10"
                     IsVisible="{Binding IsLibrarianMode}">

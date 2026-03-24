@@ -31,6 +31,13 @@ public partial class LibraryCatalogViewModel : ViewModelBase
 
     [ObservableProperty]
     private string searchText = "";
+    partial void OnSearchTextChanged(string value) //ps generated partial method when property changes
+    {
+        LoadBooks();
+    }
+
+    [ObservableProperty]
+    private string statusMessage = "";
 
     public LibraryCatalogViewModel(
         BookStore bookStore,
@@ -57,8 +64,10 @@ public partial class LibraryCatalogViewModel : ViewModelBase
             {
                 Books.Remove(bookToBorrow);
             }
-            
+
             _bookStore.SaveBooks();
+
+            StatusMessage = $"You borrowed \"{bookToBorrow.Title}\" book.";
         }
     }
 
@@ -69,7 +78,7 @@ public partial class LibraryCatalogViewModel : ViewModelBase
         {
             return;
         }
-        
+
         _bookStore.Books.Remove(SelectedBook);
         _bookStore.SaveBooks(); //saves to json
         LoadBooks(); //refreshes observable collection
@@ -97,18 +106,41 @@ public partial class LibraryCatalogViewModel : ViewModelBase
 
     private void LoadBooks()
     {
-        Books.Clear();
+        Books.Clear(); //remove the old list before rebuilding it
 
         foreach (var book in _bookStore.Books)
         {
+            bool matchesRole = false;
             if (_catalogMode == CatalogMode.Member)
             {
                 if (book.LoanedBy == "")
                 {
-                    Books.Add(book);
+                    matchesRole = true;
                 }
             }
             else
+            {
+                matchesRole = true;
+            }
+
+            if (!matchesRole)
+            {
+                continue;
+            }
+
+            bool matchesSearch = true; //if search box is empty, everything passes the search test
+
+            if (!string.IsNullOrWhiteSpace(SearchText))
+            {
+                string search = SearchText.ToLower();
+
+                bool titleMatches = book.Title.ToLower().Contains(search);
+                bool authorMatches = book.Author.ToLower().Contains(search);
+
+                matchesSearch = titleMatches || authorMatches;
+            }
+
+            if (matchesSearch)
             {
                 Books.Add(book);
             }
