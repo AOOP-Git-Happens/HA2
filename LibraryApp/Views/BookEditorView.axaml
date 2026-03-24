@@ -1,0 +1,21 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:LibraryApp.ViewModels"
+    x:Class="LibraryApp.Views.BookEditorView"
+    x:DataType="vm:BookEditorViewModel">
+
+    <StackPanel Margin="20" Spacing="10">
+        <TextBlock Text="Book Editor" FontSize="20" FontWeight="Bold"/>
+
+        <TextBox Text="{Binding Title}" Watermark="Title"/>
+        <TextBox Text="{Binding Author}" Watermark="Author"/>
+        <TextBox Text="{Binding Isbn}" Watermark="ISBN"/>
+        <TextBox Text="{Binding Description}" Watermark="Description"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Save" Command="{Binding SaveCommand}"/>
+            <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
