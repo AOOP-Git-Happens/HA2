@@ -3,6 +3,8 @@ using LibraryApp.Models;
 using System.IO;
 using System.Text.Json;
 
+//book data lives here and saved to json
+
 namespace LibraryApp.Repository;
 
 public class BookStore

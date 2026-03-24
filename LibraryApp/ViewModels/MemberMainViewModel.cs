@@ -21,12 +21,14 @@ public partial class MemberMainViewModel : ViewModelBase
     public MemberMainViewModel()
     {
         // default page
-        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Member);
+        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Member, () => { },
+    book => { });
     }
 
     public void ShowCatalog()
     {
-        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Member);
+        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Member, () => { },
+    book => { });
     }
 
     public void ShowMyLoans()

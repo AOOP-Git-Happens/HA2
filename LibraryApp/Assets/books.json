@@ -3,10 +3,10 @@
     "Id": 1,
     "Title": "The Hobbit",
     "Author": "J.R.R. Tolkien",
-    "Isbn": "1111111111",
+    "Isbn": "1111111114",
     "Description": "Dystopian novel",
-    "IsAvailable": false,
-    "LoanedBy": "dave"
+    "IsAvailable": true,
+    "LoanedBy": "bob"
   },
   {
     "Id": 2,
@@ -14,8 +14,8 @@
     "Author": "George Orwell",
     "Isbn": "2222222222",
     "Description": null,
-    "IsAvailable": false,
-    "LoanedBy": ""
+    "IsAvailable": true,
+    "LoanedBy": "bob"
   },
   {
     "Id": 3,
@@ -23,7 +23,34 @@
     "Author": "Robert C. Martin",
     "Isbn": "3333333333",
     "Description": "Programming book",
-    "IsAvailable": false,
+    "IsAvailable": true,
+    "LoanedBy": ""
+  },
+  {
+    "Id": 0,
+    "Title": "kjkjk;n",
+    "Author": "jbvkjb",
+    "Isbn": "23932390",
+    "Description": "jkjk;jk;",
+    "IsAvailable": true,
+    "LoanedBy": ""
+  },
+  {
+    "Id": 0,
+    "Title": "test",
+    "Author": "test",
+    "Isbn": "111111111",
+    "Description": "test",
+    "IsAvailable": true,
+    "LoanedBy": "bob"
+  },
+  {
+    "Id": 0,
+    "Title": "test",
+    "Author": "test",
+    "Isbn": "tes",
+    "Description": "tes",
+    "IsAvailable": true,
     "LoanedBy": ""
   }
 ]

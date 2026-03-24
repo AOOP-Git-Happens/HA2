@@ -24,11 +24,21 @@ public partial class LibrarianMainViewModel : ViewModelBase
 
     public void ShowCatalog()
     {
-        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Librarian);
+        CurrentPage = new LibraryCatalogViewModel(_bookStore, CatalogMode.Librarian, ShowAddBookEditor, ShowEditBookEditor);
     }
 
     public void ShowActiveLoans()
     {
         CurrentPage = new ActiveLoansViewModel(_bookStore);
+    }
+
+    public void ShowAddBookEditor()
+    {
+        CurrentPage = new BookEditorViewModel(_bookStore, null, ShowCatalog);
+    }
+
+    public void ShowEditBookEditor(Book book)
+    {
+        CurrentPage = new BookEditorViewModel(_bookStore, book, ShowCatalog);
     }
 }

@@ -7,8 +7,16 @@
     x:DataType="vm:LibraryCatalogViewModel">
 
     <StackPanel>
-        <TextBlock Text="Library Catalog" FontSize="16"/>
-        <TextBox Text="{Binding SearchText}" Width="200"/>
+        <TextBlock Text="Library Catalog" FontSize="20"/>
+        <TextBox Text="{Binding SearchText}" Width="200" Watermark="Search by title or author"/>
+
+        <!-- Librarian action (add, delete, edit) -->
+        <StackPanel Orientation="Horizontal" Spacing="10"
+                    IsVisible="{Binding IsLibrarianMode}">
+            <Button Content="Add Book" Command="{Binding AddBookCommand}"/>
+            <Button Content="Edit Selected" Command="{Binding EditSelectedBookCommand}"/>
+            <Button Content="Delete Selected" Command="{Binding DeleteSelectedBookCommand}"/>
+        </StackPanel>
 
         <ListBox ItemsSource="{Binding Books}"
                  SelectedItem="{Binding SelectedBook}">
@@ -19,8 +27,11 @@
                             <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="Bold"/>
                             <TextBlock Text="{Binding Author}"/>
                             <TextBlock Text="{Binding Isbn}"/>
+                            <TextBlock Text="{Binding Description}"/>
                             
-                            <Button 
+                            <!--member actions (borrow only)-->
+                            <Button
+                                IsVisible="{Binding $parent[UserControl].((vm:LibraryCatalogViewModel)DataContext).IsMemberMode}"
                                 Command="{Binding $parent[UserControl].((vm:LibraryCatalogViewModel)DataContext).BorrowCommand}" 
                                 CommandParameter="{Binding}"
                                 CornerRadius="8" Background="#4CAF50" Foreground="White" MinWidth="100" Margin="0,5,0,0">
