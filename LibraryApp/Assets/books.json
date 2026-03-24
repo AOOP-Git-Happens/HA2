@@ -15,7 +15,7 @@
     "Isbn": "2222222222",
     "Description": null,
     "IsAvailable": true,
-    "LoanedBy": "bob"
+    "LoanedBy": ""
   },
   {
     "Id": 3,
@@ -23,8 +23,8 @@
     "Author": "Robert C. Martin",
     "Isbn": "3333333333",
     "Description": "Programming book",
-    "IsAvailable": true,
-    "LoanedBy": ""
+    "IsAvailable": false,
+    "LoanedBy": "bob"
   },
   {
     "Id": 0,
