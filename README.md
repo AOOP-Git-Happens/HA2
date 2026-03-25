@@ -4,7 +4,9 @@
 # Functional Testing
 ## Borrowing [Passed]
 The borrowing button was succesfully only avaible in the members catalog view and not able in the librarian view. Borrowing changed the book.json and was able to update the the MyLoans and CatalogView. After a book was borrowed others members were not able to access the book in catalog view.
+
 -> I logged in with Bob and was sent to the catalog view. I was able to rent The hobbit and 1984. These were updated in the database (books.json) from "LoanedBy": "" to "LoanedBy": "Bob" 
+
 -> the same result were shown for the Users Kevin and Dave
 
 ## Return [Passed]
@@ -29,10 +31,14 @@ I logged in with all 2 libs gru and lucy. Both were pointed to Active Loans at f
 ## Search [Passed]
 ### Part 1 - Memebers
 In the catalog view all 3 members were able to search after the author and the title and were able to show the according books. I was only able to search for the books that were not borrowed
+
 -> I typed "te" and was showed in the catalog: "test1", "test2"
+
 -> I typed "J.R.R" and was shown in the catalog "The hobit"
 
 ### Part 2 - Librarian
 In the catalog view all 2 members were able to search after the author and the title and wer able to show the according books. I was able to search for all books (borrowed + not borrowed)
+
 -> I typed "te" and was showed in the catalog: "test1", "test2"
+
 -> I typed "J.R.R" and was shown in the catalog "The hobit"
