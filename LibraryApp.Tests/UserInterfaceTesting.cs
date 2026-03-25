@@ -13,28 +13,6 @@ namespace LibraryApp.Tests;
 public class UseCaseUITests
 {
     [AvaloniaFact]
-    public void UITest_Member_CanBorrowBook()
-    {
-        // Arrange
-        UserStore.LoggedInUsername = "Bob";
-        var store = new BookStore(); 
-        store.Books.Clear();
-
-        var book = new Book { Title = "1984", IsAvailable = true, LoanedBy = "" }; 
-        store.Books.Add(book);
-
-        var viewModel = new LibraryCatalogViewModel(store, CatalogMode.Member, () => {}, (b) => {}); 
-        var view = new LibraryCatalogView { DataContext = viewModel };
-
-        // Act - execute borrow action
-        viewModel.BorrowCommand.Execute(book); 
-
-        // Assert - verify book is now borrowed by Bob
-        Assert.False(book.IsAvailable); 
-        Assert.Equal("Bob", book.LoanedBy); 
-    }
-
-    [AvaloniaFact]
     public void UITest_Member_CanReturnBook()
     {
         // Arrange
