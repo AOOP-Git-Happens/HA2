@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Headless;
+using Avalonia.Headless.XUnit;  // Add this line
 using Xunit;
 using LibraryApp.Models;
 using LibraryApp.ViewModels;
@@ -11,16 +12,6 @@ namespace LibraryApp.Tests;
 
 public class UseCaseUITests
 {
-    [AvaloniaFact]
-    public void UITest_Member_CanBorrowBook()
-    {
-        // Arrange
-
-        // Act
-
-        // Assert   
-    }
-
     [AvaloniaFact]
     public void UITest_Member_CanReturnBook()
     {
@@ -43,13 +34,4 @@ public class UseCaseUITests
         Assert.Empty(viewModel.MyBorrowedBooks);
     }
 
-    [AvaloniaFact]
-    public void UITest_Librarian_CanSeeActiveLoans()
-    {
-        // Arrange
-       
-        // Act
-
-        // Assert
-    }
 }
