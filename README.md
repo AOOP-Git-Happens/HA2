@@ -36,6 +36,7 @@ We logged in with all 2 librarians: Gru and Lucy. Both were pointed to Active Lo
 Both Members and the Librarian were able to search the catalog by author and title, and the correct books were displayed based on the input.
 - When typing “te”, the catalog returned: “test1” and “test2”
 - When typing “J.R.R”, the catalog returned: “The Hobbit”
+
 The key difference between roles is:
 - Members could only search for and view books that were not borrowed
 - The Librarian could search for and view all books (both borrowed and not borrowed)
