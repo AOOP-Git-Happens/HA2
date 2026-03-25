@@ -10,14 +10,17 @@ public class DataPersistenceTests
     [Fact]
     public void DataPersistence_SavesAndLoads()
     {
+        // Use separate file → prevents interference with other tests
+        var testFile = "Assets/test_books_persistence.json";
+            
         // Arrange
-        var store1 = new BookStore(); //creates bookstore
+        var store1 = new BookStore(testFile); //creates bookstore
         store1.Books.Clear(); //removes books
         store1.Books.Add(new Book { Title = "Test Book" }); //adds book
 
         // Act
         store1.SaveBooks(); //calls save books
-        var store2 = new BookStore(); //new bookstore
+        var store2 = new BookStore(testFile); //new bookstore
 
         // Assert
         Assert.Single(store2.Books); 
