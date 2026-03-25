@@ -12,19 +12,17 @@ namespace LibraryApp.Tests;
 
 public class UseCaseUITests
 {
-    // USE CASE I: Member Borrowing a Book
     [AvaloniaFact]
     public void UITest_Member_CanBorrowBook()
     {
         // Arrange
         UserStore.LoggedInUsername = "Bob";
-        var store = new BookStore(); // Fixed CS1729
+        var store = new BookStore(); 
         store.Books.Clear();
 
         var book = new Book { Title = "1984", IsAvailable = true, LoanedBy = "" }; 
         store.Books.Add(book);
 
-        // Fixed CS7036 by adding CatalogMode and dummy Action parameters
         var viewModel = new LibraryCatalogViewModel(store, CatalogMode.Member, () => {}, (b) => {}); 
         var view = new LibraryCatalogView { DataContext = viewModel };
 
@@ -36,13 +34,12 @@ public class UseCaseUITests
         Assert.Equal("Bob", book.LoanedBy); 
     }
 
-    // USE CASE II: Member Returning a Book 
     [AvaloniaFact]
     public void UITest_Member_CanReturnBook()
     {
         // Arrange
         UserStore.LoggedInUsername = "Bob";
-        var store = new BookStore(); // Fixed CS1729
+        var store = new BookStore(); 
         store.Books.Clear();
 
         var book = new Book { Title = "The Hobbit", IsAvailable = false, LoanedBy = "Bob" }; 
@@ -60,23 +57,22 @@ public class UseCaseUITests
         Assert.Empty(viewModel.MyBorrowedBooks); 
     }
 
-    // USE CASE III: Librarian Tracking Active Loans
     [AvaloniaFact]
     public void UITest_Librarian_TracksActiveLoans()
     {
         // Arrange
-        UserStore.LoggedInUsername = "AdminLibrarian"; 
-        var store = new BookStore(); // Fixed CS1729
+        UserStore.LoggedInUsername = "gru"; 
+        var store = new BookStore(); 
         store.Books.Clear();
 
-        // Add one available book and one borrowed book
+        // adds one available book and one borrowed book
         store.Books.Add(new Book { Title = "Available Book", IsAvailable = true, LoanedBy = "" });
-        store.Books.Add(new Book { Title = "Borrowed Book", IsAvailable = false, LoanedBy = "Alice" });
+        store.Books.Add(new Book { Title = "Borrowed Book", IsAvailable = false, LoanedBy = "bob" });
 
         var viewModel = new ActiveLoansViewModel(store); 
         var view = new ActiveLoansView { DataContext = viewModel };
 
-        // Act & Assert - Fixed CS1061 by checking the exact property name ActiveBorrowedBooks
+        // Act & Assert 
         Assert.Single(viewModel.ActiveBorrowedBooks); 
         Assert.Equal("Borrowed Book", viewModel.ActiveBorrowedBooks.First().Title);
         Assert.Equal("Alice", viewModel.ActiveBorrowedBooks.First().LoanedBy);
