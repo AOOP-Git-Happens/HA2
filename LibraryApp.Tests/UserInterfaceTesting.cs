@@ -6,7 +6,9 @@ using LibraryApp.Models;
 using LibraryApp.ViewModels;
 using LibraryApp.Repository;
 using LibraryApp.Views;
-using System.Linq;
+using System.Linq; 
+//'using' statements is unnecessary, as we added 'using' for 
+//everything inside ...Tests.csproj
 
 namespace LibraryApp.Tests;
 
@@ -19,19 +21,19 @@ public class UseCaseUITests
         UserStore.LoggedInUsername = "Bob";
         var store = new BookStore();
         store.Books.Clear();
-        var book = new Book { Title = "The Hobbit", IsAvailable = false, LoanedBy = "Bob" };
+        var book = new Book { Title = "The Hobbit", IsAvailable = false, LoanedBy = "Bob" }; //not available, loaned by Bob
         store.Books.Add(book);
 
-        var viewModel = new MyLoansViewModel(store);
+        var viewModel = new MyLoansViewModel(store); //opens
         var view = new MyLoansView { DataContext = viewModel };
 
         // Act
-        viewModel.ReturnCommand.Execute(book);
+        viewModel.ReturnCommand.Execute(book); //execute return command
 
         // Assert
-        Assert.True(book.IsAvailable);
-        Assert.Equal("", book.LoanedBy);
-        Assert.Empty(viewModel.MyBorrowedBooks);
+        Assert.True(book.IsAvailable); //book is available 
+        Assert.Equal("", book.LoanedBy); //no one loaned it
+        Assert.Empty(viewModel.MyBorrowedBooks); //disappears from bob'ss list
     }
 
 }
