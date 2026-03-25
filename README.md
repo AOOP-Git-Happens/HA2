@@ -14,11 +14,11 @@ Logged in as Bob. Then I clicked on "MyLoans" button. Bob had 1 book to return. 
 
 After testing the returning I went back to Catalog and rented 2 books, which after clicking back in the MyLoans appeared and I was able to return both of them succesfully and replaced in the database empty
 
-## Add Book [Passed]
+## Add Book [FAILED]
+Add book is succsfully is only avaible for in the libarian view and not seen as members. The button is clickable and after being and adds a empty book. This can be added with the information from the book.json. If a book is added without any information its still visible. This normally should show an error sign that information is missing.
 
 ## Delete Book [Passed]
-
-## Active Loan [Passed]
+I could sucesfully delet books. After signing in as libarian I was able in the catalog view to delet the books and this also then removed all the text about this book from book.json
 
 ## Login [Passed]
 This test was in 2 part
@@ -27,6 +27,10 @@ I logged in with all 3 members bob, dave & kevin. All of them were sucessfully s
 
 ### Part 2 - Librarian
 I logged in with all 2 libs gru and lucy. Both were pointed to Active Loans at first and were able to see the active loans from all members (1984 - bob, test1 - bob, test2 - kevin, the hobit - dave). Both were able to see the all books in the Catalog and were able to add/delete/edit.
+
+## Active Loan Tracking [Passed]
+
+Logged in as a librarian (Gru/Lucy). I was able to see the active loans from all members simultaneously (e.g., 1984 - Bob, test1 - Bob, test2 - Kevin, The Hobbit - Dave).
 
 ## Search [Passed]
 ### Part 1 - Memebers
@@ -42,3 +46,7 @@ In the catalog view all 2 members were able to search after the author and the t
 -> I typed "te" and was showed in the catalog: "test1", "test2"
 
 -> I typed "J.R.R" and was shown in the catalog "The hobit"
+
+
+## Data Persistence Test [Passed]
+I verified that all changes made during the tests (borrowing books, returning books, adding/deleting books) were accurately saved to books.json. Furthermore, I completely closed and restarted the application, and verified that all previously borrowed books and catalog changes persisted correctly upon reboot.
