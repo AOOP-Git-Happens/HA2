@@ -18,4 +18,9 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <!--to reference the main project-->
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryApp\LibraryApp.csproj" />
+  </ItemGroup>
+
 </Project>
