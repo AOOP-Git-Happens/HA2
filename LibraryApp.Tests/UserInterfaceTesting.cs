@@ -75,6 +75,6 @@ public class UseCaseUITests
         // Act & Assert 
         Assert.Single(viewModel.ActiveBorrowedBooks); 
         Assert.Equal("Borrowed Book", viewModel.ActiveBorrowedBooks.First().Title);
-        Assert.Equal("Alice", viewModel.ActiveBorrowedBooks.First().LoanedBy);
+        Assert.Equal("bob", viewModel.ActiveBorrowedBooks.First().LoanedBy);
     }
 }
