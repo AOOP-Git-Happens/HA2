@@ -1,6 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Headless;
-using Avalonia.Headless.XUnit;  // Add this line
+using Avalonia.Headless.XUnit;
 using Xunit;
 using LibraryApp.Models;
 using LibraryApp.ViewModels;
@@ -39,4 +39,24 @@ public class UseCaseUITests
         Assert.Empty(viewModel.MyBorrowedBooks); //disappears from bob'ss list
     }
 
+    [AvaloniaFact]
+    public void UITest_Librarian_TracksActiveLoans()
+    {
+        // Arrange
+        UserStore.LoggedInUsername = "gru"; 
+        var store = new BookStore(); 
+        store.Books.Clear();
+
+        // adds one available book and one borrowed book
+        store.Books.Add(new Book { Title = "Available Book", IsAvailable = true, LoanedBy = "" });
+        store.Books.Add(new Book { Title = "Borrowed Book", IsAvailable = false, LoanedBy = "bob" });
+
+        var viewModel = new ActiveLoansViewModel(store); 
+        var view = new ActiveLoansView { DataContext = viewModel };
+
+        // Act & Assert 
+        Assert.Single(viewModel.ActiveBorrowedBooks); 
+        Assert.Equal("Borrowed Book", viewModel.ActiveBorrowedBooks.First().Title);
+        Assert.Equal("bob", viewModel.ActiveBorrowedBooks.First().LoanedBy);
+    }
 }
