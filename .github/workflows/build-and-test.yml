@@ -23,11 +23,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v3 #GitHub downloads repo into the runner machine.
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Install dependencies
+    - name: Install dependencies #Downloads NuGet packages, like xunit
       run: dotnet restore
       
     - name: Build
