@@ -3,50 +3,43 @@
 
 # Functional Testing
 ## Borrowing [Passed]
-The borrowing button was succesfully only avaible in the members catalog view and not able in the librarian view. Borrowing changed the book.json and was able to update the the MyLoans and CatalogView. After a book was borrowed others members were not able to access the book in catalog view.
+The borrowing button was only succesfully avaible in the Member Catalog and not in the Librarian Catalog. Borrowing changed the book.json and was able to update the MyLoans and CatalogView. After a book was borrowed, other members were not able to access the book in member catalog.
 
--> I logged in with Bob and was sent to the catalog view. I was able to rent The hobbit and 1984. These were updated in the database (books.json) from "LoanedBy": "" to "LoanedBy": "Bob" 
+-> We logged in with Bob credetentials and were redirected to the Member Catalog, where were able to rent The hobbit and 1984. These books were updated in the database (books.json) from "LoanedBy": "" to "LoanedBy": "Bob".
 
--> the same result were shown for the Users Kevin and Dave
+-> Same worked for the members Kevin and Dave.
 
 ## Return [Passed]
-Logged in as Bob. Then I clicked on "MyLoans" button. Bob had 1 book to return. When clicking red return button the book vanished from his "MyLoans". In the Database (book.json) the "LoanedBy": "bob" succesfully replaced his name with an empty space -> "LoanedBy": "". I also checked if the book appeared back in Catalogue which was succesfull.
+While logged in as Bob, we clicked on "MyLoans" button. Bob had 1 book to return. When clicking red return button, the book vanished from "MyLoans" page. In the Database (book.json) the "LoanedBy": "Bob" succesfully replaced the name with an empty space -> "LoanedBy": "". Book was also succesfully returned to Member Catalog. 
 
-After testing the returning I went back to Catalog and rented 2 books, which after clicking back in the MyLoans appeared and I was able to return both of them succesfully and replaced in the database empty
+After testing the return process, we went back to the Member Catalog and rented two books. After navigating back to MyLoans, both books appeared, and we were able to return them successfully. The database was then updated, marking them as available (empty).
 
-## Add Book [FAILED]
-Add book is succsfully is only avaible for in the libarian view and not seen as members. The button is clickable and after being and adds a empty book. This can be added with the information from the book.json. If a book is added without any information its still visible. This normally should show an error sign that information is missing.
+## Add Book [Passed]
+Book addition is only avaliable in Librarian Catalog, but the result of new book added can be seen in both: Librarian and Member Catalogs. 
 
 ## Delete Book [Passed]
-I could sucesfully delet books. After signing in as libarian I was able in the catalog view to delet the books and this also then removed all the text about this book from book.json
-
-## Login [Passed]
-This test was in 2 part
-### Part 1 - Members
-I logged in with all 3 members bob, dave & kevin. All of them were sucessfully showed the Catalogue View. All of them could only see their own personal rented books and could also only return their borrowed books.
-
-### Part 2 - Librarian
-I logged in with all 2 libs gru and lucy. Both were pointed to Active Loans at first and were able to see the active loans from all members (1984 - bob, test1 - bob, test2 - kevin, the hobit - dave). Both were able to see the all books in the Catalog and were able to add/delete/edit.
+Books can be could successfully deleted. After signing in as Libarian, we were able to delete the books from Catalog and it also emptied book.json. 
 
 ## Active Loan Tracking [Passed]
 
-Logged in as a librarian (Gru/Lucy). I was able to see the active loans from all members simultaneously (e.g., 1984 - Bob, test1 - Bob, test2 - Kevin, The Hobbit - Dave).
+When Logged in as a librarian (Gru/Lucy), we were able to see the active loans from all members simultaneously (e.g., 1984 - Bob and test1 - Bob, test2 - Kevin, The Hobbit - Dave).
 
-## Search [Passed]
-### Part 1 - Memebers
-In the catalog view all 3 members were able to search after the author and the title and were able to show the according books. I was only able to search for the books that were not borrowed
-
--> I typed "te" and was showed in the catalog: "test1", "test2"
-
--> I typed "J.R.R" and was shown in the catalog "The hobit"
+## Login [Passed]
+This test was passed in 2 parts.
+### Part 1 - Members
+We logged in with all 3 members, such as Bob, Dave & Kevin. All of them successfully landed on the Member Catalog. All could only see their own personal rented books and could only return their borrowed books.
 
 ### Part 2 - Librarian
-In the catalog view all 2 members were able to search after the author and the title and wer able to show the according books. I was able to search for all books (borrowed + not borrowed)
+We logged in with all 2 librarians: Gru and Lucy. Both were pointed to Active Loans at first and were able to see the active loans from all members (1984 and test1 - bob, test2 - Kevin, The Hobbit - Dave). Both were able to see all books in the Librarian Catalog and were able to add/delete/edit specific books.
 
--> I typed "te" and was showed in the catalog: "test1", "test2"
-
--> I typed "J.R.R" and was shown in the catalog "The hobit"
+## Search [Passed]
+Both Members and the Librarian were able to search the catalog by author and title, and the correct books were displayed based on the input.
+- When typing “te”, the catalog returned: “test1” and “test2”
+- When typing “J.R.R”, the catalog returned: “The Hobbit”
+The key difference between roles is:
+- Members could only search for and view books that were not borrowed
+- The Librarian could search for and view all books (both borrowed and not borrowed)
 
 
 ## Data Persistence Test [Passed]
-I verified that all changes made during the tests (borrowing books, returning books, adding/deleting books) were accurately saved to books.json. Furthermore, I completely closed and restarted the application, and verified that all previously borrowed books and catalog changes persisted correctly upon reboot.
+We verified that all changes made during the tests (borrowing books, returning books, adding/deleting books) were accurately saved to books.json. Furthermore, we completely closed and restarted the application, and verified that all previously borrowed books and catalog changes persisted correctly upon reboot.
