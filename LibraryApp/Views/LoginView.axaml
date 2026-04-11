@@ -45,7 +45,7 @@
                  HorizontalAlignment="Right"
                  VerticalAlignment="Bottom"
                  Margin="0,0,-120,-75"
-                 Stroke="#F97068" StrokeThickness="30" 
+                 Stroke="#43110e" StrokeThickness="30" 
                  StrokeDashArray="2,1,4,1,7,5,1,6,7">
             <Ellipse.RenderTransform>
                 <RotateTransform Angle="0.0" />
