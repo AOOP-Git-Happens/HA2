@@ -41,7 +41,7 @@ public partial class LoginViewModel : ViewModelBase
         }
         else
         {
-            Console.WriteLine("Invalid username or password.");
+            Console.WriteLine("Invalid username or password");
         }
     }   
 }
